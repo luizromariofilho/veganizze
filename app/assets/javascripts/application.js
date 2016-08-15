@@ -12,6 +12,13 @@
 //
 //= require jquery
 //= require angular
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require ui-router
+
+//= require ./app/app
+
+//= require_tree ./config
+//= require_tree ./app/controllers/
+//= require_tree ./app/factories/
+//= require_tree ./app/directives/
+//= require_tree ./app/filters/
+//= require_tree ./app/pages/
