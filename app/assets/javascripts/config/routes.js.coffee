@@ -1,14 +1,56 @@
-# app/assets/javascripts/config/routes.js.coffee
-@app.config ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
+$stateProvider
+  .state 'home',
+    url: ''
+    controller: 'ApplicationCtrl'
+  # home
 
-  $urlRouterProvider
-    .otherwise('/404')
-  # $urlRouterProvider
+  .state 'recipes',
+    abstract: true
+    views:
+      '':
+        controller: 'RecipesCtrl'
+        templateUrl: '/recipes/layout.html'
+      # ''
+    # views
+  # recipe
 
-  $stateProvider
-    .state 'home',
-      url: ''
-      controller: 'ApplicationCtrl'
-    # home
-  # $stateProvider
-] # config
+  .state 'recipes.index',
+    url: '/recipes'
+    views:
+      'recipes':
+        controller: 'RecipesIndexCtrl'
+        templateUrl: '/recipes.html'
+      # 'recipes'
+    # views
+  # recipe.index
+
+  .state 'recipes.new',
+    url: '/recipes/new'
+    views:
+      'recipes':
+        controller: 'RecipesNewCtrl'
+        templateUrl: '/recipes/new.html'
+      # 'recipes'
+    # views
+  # recipe.new
+
+  .state 'recipes.show',
+    url: '/recipes/:id'
+    views:
+      'recipes':
+        controller: 'RecipeShowController'
+        templateUrl: (stateParams) -> '/recipes/' + stateParams.id + '.html'
+      # 'recipes'
+    # views
+  # recipe.show
+
+  .state 'recipes.edit',
+    url: '/recipes/:id/edit'
+    views:
+      'recipes':
+        controller: 'RecipesEditController'
+        templateUrl: (stateParams) -> '/recipes/' + stateParams.id + '/edit.html'
+      # 'recipes'
+    # views
+  # recipe.edit
+# $stateProvider
