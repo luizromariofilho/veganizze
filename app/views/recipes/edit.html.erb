@@ -1,6 +1,6 @@
-<h1>Editing Recipe</h1>
+<h1>Editing recipe</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @recipe %> |
-<%= link_to 'Back', recipes_path %>
+<a href="javascript:void(0)" ui-sref="recipes.show({ id: currentRecipe.id })">Show</a>
+<a href="javascript:void(0)" ui-sref="recipes.index">Back</a>

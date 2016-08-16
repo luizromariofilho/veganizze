@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
-  <%= @recipe.title %>
+  {{ currentRecipe.title }}
 </p>
 
 <p>
   <strong>Ingredients:</strong>
-  <%= @recipe.ingredients %>
+  {{ currentRecipe.ingredients }}
 </p>
 
 <p>
   <strong>Directions:</strong>
-  <%= @recipe.directions %>
+  {{ currentRecipe.directions }}
 </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<a href="javascript:void(0)" ui-sref="recipes.edit({ id: currentRecipe.id })">Edit</a>
+<a href="javascript:void(0)" ui-sref="recipes.index">Back</a>

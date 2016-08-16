@@ -1,4 +1,5 @@
-$stateProvider
+@app.config ['$stateProvider', '$urlRouterProvider', '$locationProvider', ($stateProvider, $urlRouterProvider, $locationProvider) ->
+  $stateProvider
   .state 'home',
     url: ''
     controller: 'ApplicationCtrl'
@@ -38,7 +39,7 @@ $stateProvider
     url: '/recipes/:id'
     views:
       'recipes':
-        controller: 'RecipeShowController'
+        controller: 'RecipeShowCtrl'
         templateUrl: (stateParams) -> '/recipes/' + stateParams.id + '.html'
       # 'recipes'
     # views
@@ -48,9 +49,15 @@ $stateProvider
     url: '/recipes/:id/edit'
     views:
       'recipes':
-        controller: 'RecipesEditController'
+        controller: 'RecipesEditCtrl'
         templateUrl: (stateParams) -> '/recipes/' + stateParams.id + '/edit.html'
       # 'recipes'
     # views
   # recipe.edit
 # $stateProvider
+
+  $locationProvider
+    .html5Mode(true)
+    .hashPrefix('!')
+  # $locationProvider
+] # config
